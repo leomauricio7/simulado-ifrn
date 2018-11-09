@@ -1,0 +1,36 @@
+<div class="container container-admin">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Questões</li>
+        </ol>
+    </nav>
+    <form class="form-inline">
+        <div class="form-group">
+            <input type="text" class="form-control mx-sm-3" style="margin-left:0 !important;" ng-model="search"
+                placeholder="Buscar...">
+        </div>
+    </form>
+    <hr />
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Tipo</th>
+                <th scope="col">Questão</th>
+                <th scope="col">Cadastro</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="data in questions| filter: search">
+            <tr>
+                <td>{{data.tipo}}</td>
+                <td>{{data.description.substr(0, 200)}}...</td>
+                <td>{{data.createdAt | date:"dd/MM/yyyy HH:mm:ss" }}</td>
+                <td><a href="#/admin/dashboard/questions/update/{{data._id}}" class="btn btn-table btn-sm btn-warning">Editar</a></td>
+                <td><a ng-click="remover(data._id)" class="btn btn-table btn-sm btn-danger">Excluir</a></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,86 @@
+<div class="container container-admin">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="#">Questões</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Cadastrar Questão</li>
+        </ol>
+    </nav>
+    <div ng-show="success" class="alert alert-success" role="alert">
+       Questão cadastrada com sucesso
+    </div>
+    <div ng-show="error" class="alert alert-danger" role="alert">
+        Error: 401 Not Found Object
+    </div>
+    <form>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Pergunta</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" ng-model="description" rows="5"></textarea>
+                <p ng-show="errors.description" class="alert-form">
+                    Preencha o campo da pergunta
+                </p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Tipo</label>
+            <div class="col-sm-10">
+                <select ng-model="tipo" class="form-control">
+                    <option value="">Selecione o tipo</option>
+                    <option value="portugues">Português</option>
+                    <option value="matematica">Matemática</option>
+                </select>
+                <p ng-show="errors.tipo" class="alert-form">
+                    Selecione o tipo
+                </p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Alternativa 1</label>
+                <input class="form-control" ng-model="alt1" />
+                <p ng-show="errors.alt1" class="alert-form">
+                    Preencha a alternativa
+                </p>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Alternativa 2</label>
+                <input class="form-control" ng-model="alt2" />
+                <p ng-show="errors.alt2" class="alert-form">
+                    Preencha a alternativa
+                </p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Alternativa 3</label>
+                <input class="form-control" ng-model="alt3" />
+                <p ng-show="errors.alt3" class="alert-form">
+                    Preencha a alternativa
+                </p>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Alternativa 4</label>
+                <input class="form-control" ng-model="alt4" />
+                <p ng-show="errors.alt4" class="alert-form">
+                    Preencha a alternativa
+                </p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Resposta</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="resposta" />
+                <p ng-show="errors.resposta" class="alert-form">
+                    Preencha a resposta
+                </p>
+            </div>
+        </div>
+        <hr />
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button ng-click="save()" class="btn btn-primary">Finalizar Cadastro</button>
+            </div>
+        </div>
+    </form>
+</div>
