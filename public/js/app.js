@@ -1,5 +1,5 @@
 var app = angular.module('sif', ['ngRoute']);
-var url = "http://localhost:3000";
+var url = "https://sif-simulado.herokuapp.com";
 
 app.config(function($routeProvider) {
       $routeProvider.when("/", {
