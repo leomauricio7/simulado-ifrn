@@ -1,16 +1,14 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://sif:sif2010@ds243963.mlab.com:43963/sif', { useNewUrlParser: true});
+mongoose.connect('mongodb://teste:teste@ds131963.mlab.com:31963/teste', { useNewUrlParser: true});
 mongoose.Promise = global.Promise;
 
 const statusDB = mongoose.connection;
 
-/*
-serve para exibir no console o status da conexão
 statusDB.on('error', console.error.bind(console, 'connection error:'));
 statusDB.once('open', function() {
   console.log('Conectado ao mongoLab com sucesso!');
 });
-*/
+
 
 module.exports = mongoose;
