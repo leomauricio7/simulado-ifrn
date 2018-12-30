@@ -8,6 +8,8 @@ app.controller("SimuladoController", function($scope, $http, $window){
 
     $scope.geraSimulado = function(){
         $http.get(url+"/gera-simulado").then(function(res){
+            $scope.certas = 0;
+            $scope.erradas = 0;
             $scope.status = false;
             $scope.tasks = true;
             $scope.finish = false;
