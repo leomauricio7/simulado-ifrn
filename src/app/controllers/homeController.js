@@ -10,7 +10,12 @@ router.get("/", async (req, res, next) => {
 
 router.get('/gera-simulado', async (req, res) => {
    try {
-    const questions = await Question.aggregate( [ { $match: { tipo : "portugues" } }, { $sample: { size: 1 } } ] );
+    const questions = await Question.aggregate(
+        [
+            { $match: {} },
+            { $sample: { size: 5 } } ,
+            { $sort: { _id: -1 } }
+    ]);
     res.status(200).json(questions);
     //console.log(questions);
    } catch (err) {

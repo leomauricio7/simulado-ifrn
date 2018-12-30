@@ -1,5 +1,5 @@
 var app = angular.module('sif', ['ngRoute']);
-var url = "https://sif-simulado.herokuapp.com";
+var url = "http://localhost:3000"; //"https://sif-simulado.herokuapp.com";
 
 app.config(function($routeProvider) {
       $routeProvider.when("/", {
@@ -9,6 +9,10 @@ app.config(function($routeProvider) {
       .when("/login", {
         templateUrl: "views/login.html",
         controller: "LoginController"
+      })
+      .when("/quem-somos", {
+        templateUrl: "views/quemsomos.html",
+        controller: "QuemSomosController"
       })
       .when("/forgot-password", {
         templateUrl: "views/forgot-password.html",

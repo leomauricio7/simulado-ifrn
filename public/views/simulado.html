@@ -1,7 +1,7 @@
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-    <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <div class="col-md-8 p-lg-5 mx-auto my-5">
         <img style="padding-bottom: 20px;" src="images/logo.png" alt="SIF - simualdo ifrn" />
-        <form class="form-home">
+        <form class="form-home" ng-show="status">
             <div class="form-group">
                 <p>Este é um simulado do exame de seleção do <strong>IFRN</strong></p>
                 <ul>
@@ -10,10 +10,51 @@
                     <li>Todas são questões de assinalar</li>
                     <li>Basta clicar na resposta que achar correta e ir avançando para a próxima.</li>
                 </ul>
-                <p>Ao final, você verá o resultado, com a quantidade de respostas corretas e das que você errou, além do tempo gasto para realizar o simulado.</p>
+                <p>Ao final, você verá o resultado, com a quantidade de respostas corretas e das que você errou, além
+                    do tempo gasto para realizar o simulado.</p>
             </div>
         </form>
-        <button class="btn btn-success" ng-click="geraSimulado()">Iniciar Simulado</button>
+        <button ng-show="status" class="btn btn-success" ng-click="geraSimulado()" onclick="init();">Iniciar Simulado</button>
+
+        <!---------------------------------------------------------------------------->
+
+        <table ng-show="tasks" class="table table-bordered text-left">
+                <div ng-show="completed" class="alert alert-success" role="alert">
+                    <h4>
+                        Simulado Finalizado com sucesso!<br>Você acertou {{ certas }} e errou {{ erradas }} de {{ data.length }} perguntas.
+                    </h4>
+                </div>
+                <h1 ng-show="tasks">
+                   <strong ng-show="completed">Tempo Gasto </strong><i class="fa fa-clock"></i> <span id="hora">00:</span><span id="minuto">00:</span><span id="segundo">00</span><br>
+                </h1>
+            <tbody ng-hide="finish" ng-repeat="task in data">
+                <tr class="peg">
+                    <td colspan="3"> Pergunta: {{task.description}}</td>
+                </tr>
+                <tr class="alt">
+                    <th width="5%"><input type="radio" name="peg{{task._id}}" ng-click="selectAlt(task._id, task.alt1)"></th>
+                    <td width="5%"  class="op">A)</td>
+                    <td>{{task.alt1}}</td>
+                </tr>
+                <tr class="alt">
+                    <th width="5%"><input type="radio" name="peg{{task._id}}" ng-click="selectAlt(task._id, task.alt2)"></th>
+                    <td width="5%" class="op">B)</td>
+                    <td>{{task.alt2}}</td>
+                </tr>
+                <tr class="alt">
+                    <th width="5%"><input type="radio" name="peg{{task._id}}" ng-click="selectAlt(task._id, task.alt3)"></th>
+                    <td width="5%"  class="op">C)</td>
+                    <td>{{task.alt3}}</td>
+                </tr>
+                <tr class="alt">
+                    <th width="5%"><input type="radio" name="peg{{task._id}}" ng-click="selectAlt(task._id, task.alt4)"></th>
+                    <td width="5%"  class="op">D)</td>
+                    <td>{{task.alt4}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button ng-show="tasks" id="finish" class="btn btn-success" ng-click="finalizaSimulado()" onclick="parar();"> Finalizar Simulado</button>
+        <button ng-show="completed" class="btn btn-success" ng-click="geraSimulado()" onclick="init();"> Gerar outro simulado</button>
     </div>
     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 </div>

@@ -1,4 +1,22 @@
-
+.op{
+  font-weight: bold!important;
+}
+.peg{
+  background-color: #009a64;
+  color: #FFF;
+}
+.alt:hover{
+  color: blue;
+  cursor:pointer;
+  background-color: #ccc;
+  transition: all .5s;
+}
+.alt-active{
+  background-color: aquamarine;
+}
+.list-group{
+  margin-bottom: 30px!important;
+}
 .form-home{
   text-align: left!important;
 }
