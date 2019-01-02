@@ -22,7 +22,7 @@ function generateToken( params = {} ){
     * segundo é um hash unico da aplicação que fica salvo na pasta config no arquivo auth.json
     * terceiro é o tempo de duração do token nesse exemplo demos um dia para expirar
     */
-    return jwt.sign( params, authConfig.secret, { expiresIn: '12h', } );
+    return jwt.sign( params, authConfig.secret, { expiresIn: '24h', } );
 }
 
 //async -> serve para informa que é uma função assincrona

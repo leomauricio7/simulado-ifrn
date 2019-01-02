@@ -25,7 +25,7 @@ router.get('/gera-simulado', async (req, res) => {
 });
 
 //verifica se está logado
-router.get('/isAuth', auth, (req, res) => {
+router.get('/isAuth', /*auth,*/ (req, res) => {
     res.status(200).send('Logado!');
 });
 

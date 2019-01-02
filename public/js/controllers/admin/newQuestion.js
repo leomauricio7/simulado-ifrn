@@ -6,6 +6,10 @@ app.controller("NewQuestionController", function($scope, $window, $http, isAuth)
 
     $scope.save = function(){
         $scope.errors = {};
+        var peg = angular.element(perguntaAtiva).html();
+        var newstr= peg.replace(/&lt;/g,"<");
+        newstr = newstr.replace(/&gt;/g,">");
+        $scope.description = newstr;
         if(!$scope.description)
             return $scope.errors.description = true;
         if(!$scope.tipo)

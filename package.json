@@ -11,9 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular-sanitize": "^1.7.5",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "ckeditor": "^4.11.1",
     "cors": "^2.8.4",
+    "crypto": "^1.0.1",
     "debug": "^4.1.0",
     "express": "^4.16.4",
     "fs": "0.0.1-security",
@@ -22,6 +25,7 @@
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.6",
     "mongoose-paginate": "^5.0.3",
+    "multer": "^1.4.1",
     "nodemailer": "^4.6.8",
     "nodemailer-express-handlebars": "^3.0.0",
     "path": "^0.12.7"

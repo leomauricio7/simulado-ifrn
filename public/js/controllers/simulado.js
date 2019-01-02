@@ -5,7 +5,7 @@ app.controller("SimuladoController", function($scope, $http, $window){
     $scope.finish = false;
     $scope.certas = 0;
     $scope.erradas = 0;
-
+    
     $scope.geraSimulado = function(){
         $http.get(url+"/gera-simulado").then(function(res){
             $scope.certas = 0;
@@ -22,9 +22,8 @@ app.controller("SimuladoController", function($scope, $http, $window){
     }
 
     $scope.selectAlt = function(id_pergunta, resposta){
-        console.log('pergunta enviada:',id_pergunta,resposta)
+        verificaResposta(id_pergunta, resposta);
         let peg_temp = $scope.data.filter( elm => { return elm._id == id_pergunta })
-        console.log('pergunta achada:', peg_temp[0]._id)
         if(peg_temp[0].resposta === resposta){
             $scope.certas+=1;
         }else{
@@ -35,6 +34,18 @@ app.controller("SimuladoController", function($scope, $http, $window){
     $scope.finalizaSimulado = function(){
         $scope.finish = true;
         $scope.completed = true;
+        $scope.tasks = true;
+    }
+
+    function verificaResposta(id_task, resposta){
+        $scope.resposta_selecionada_id_task_resposta = id_task
+        let peg_temp = $scope.data.filter( elm => { return elm._id == id_task })
+        if(peg_temp[0].resposta === resposta){
+            $scope.resposta_selecionada_id_task_resposta = resposta
+        }else{
+            $scope.resposta_selecionada_id_task_resposta = false
+        }
+
     }
 
 });
