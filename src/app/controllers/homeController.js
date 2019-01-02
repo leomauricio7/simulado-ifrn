@@ -13,7 +13,7 @@ router.get('/gera-simulado', async (req, res) => {
     const questions = await Question.aggregate(
         [
             { $match: {} },
-            { $sample: { size: 5 } } ,
+            { $sample: { size: 40 } } ,
             { $sort: { _id: -1 } }
     ]);
     res.status(200).json(questions);
