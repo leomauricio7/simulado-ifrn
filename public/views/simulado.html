@@ -31,7 +31,7 @@
                 </h1>
                 <tbody ng-repeat="task in data">
                     <tr class="peg-title">
-                        <td colspan="4"><strong>Questão {{$index+1}} - {{ task.tipo }}</strong></td>
+                        <td colspan="4"><strong>Questão {{$index+1}} - {{ task.tipo == 'matematica' ? 'Matemática': 'Português' }}</strong></td>
                     </tr>
                     <tr class="peg">
                         <td colspan="3" ng-bind-html="task.description"></td>

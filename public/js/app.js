@@ -4,43 +4,53 @@ var url = "https://sif-simulado.herokuapp.com"; //"https://sif-simulado.herokuap
 app.config(function($routeProvider) {
       $routeProvider.when("/", {
         templateUrl: "views/home.html",
-        controller: "HomeController"
+        controller: "HomeController",
+        cache: false
       })
       .when("/login", {
         templateUrl: "views/login.html",
-        controller: "LoginController"
+        controller: "LoginController",
+        cache: false
       })
       .when("/quem-somos", {
         templateUrl: "views/quemsomos.html",
-        controller: "QuemSomosController"
+        controller: "QuemSomosController",
+        cache: false
       })
       .when("/forgot-password", {
         templateUrl: "views/forgot-password.html",
-        controller: "ForgotPasswordController"
+        controller: "ForgotPasswordController",
+        cache: false
       })
       .when("/reset-password/:token", {
         templateUrl: "views/reset-password.html",
-        controller: "ResetPasswordController"
+        controller: "ResetPasswordController",
+        cache: false
       })
       .when("/simulado", {
         templateUrl: "views/simulado.html",
-        controller: "SimuladoController"
+        controller: "SimuladoController",
+        cache: false
       })
       .when("/admin/dashboard", {
         templateUrl: "views/admin/dashboard.html",
-        controller: "AdminController"
+        controller: "AdminController",
+        cache: false
       })
       .when("/admin/dashboard/questions", {
         templateUrl: "views/admin/listQuestions.html",
-        controller: "ListQuestionsController"
+        controller: "ListQuestionsController",
+        cache: false
       })
       .when("/admin/dashboard/questions/new", {
         templateUrl: "views/admin/newQuestion.html",
-        controller: "NewQuestionController"
+        controller: "NewQuestionController",
+        cache: false
       })
       .when("/admin/dashboard/questions/update/:id", {
         templateUrl: "views/admin/updateQuestion.html",
-        controller: "UpdateQuestionController"
+        controller: "UpdateQuestionController",
+        cache: false
       })
       .otherwise({
         redirectTo: '/'
